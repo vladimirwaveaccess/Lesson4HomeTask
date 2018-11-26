@@ -13,7 +13,7 @@ class Task2 {
         System.out.println("Мигающая герлянда:");
         blinkGarland(gar, 5);
 
-        System.out.println("Гирлянда в режиме бегущая строка:");
+        System.out.println("\nГирлянда в режиме бегущая строка:");
         runTickerMode(runGar, 31);
 
     }
@@ -24,7 +24,31 @@ class Task2 {
      * @param gar - гирлянда, аргумент типа Integer
      */
     private static void outputOfGarland(int gar) {
-        System.out.printf("%32s%n", Integer.toBinaryString(gar));
+        String str;
+        char lampSwitchOff = 0x2591;
+        char lampSwitchOn = 0x2593;
+        char[] masStr = new char[32];
+        char[] chArray = Integer.toBinaryString(gar).toCharArray();
+        int lenGar = chArray.length - 1;
+
+    //-------------------------------------------- Fill masStr massive -------------------------------------------------
+        for (int i = 0; i < 32; i++) {
+            masStr[i] = 0x2591;
+        }
+
+        int j = 31;
+        for (int i = lenGar; i >= 0; i--) {
+            masStr[j] = chArray[i];
+            j--;
+        }
+
+    //--------------------------------------- Change '0' to ░ symbol and '1' to ▓ symbol ------------------------------
+        str = String.valueOf(masStr);
+        str = str.replace('0', lampSwitchOff);
+        str = str.replace('1', lampSwitchOn);
+
+        System.out.println(str);
+
     }
 
     /**
