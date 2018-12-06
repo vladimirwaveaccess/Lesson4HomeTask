@@ -11,8 +11,8 @@ public class Main {
         System.out.println("Lesson 4. Task 1");
         minDoubleValue();
 
-        System.out.println("\n\nLesson 4. Task 2");
-        workOfGarland();
+//        System.out.println("\n\nLesson 4. Task 2");
+//        workOfGarland();
 
         System.out.println("\n\nLesson 4. Task 3");
         getAverageValue(args);
